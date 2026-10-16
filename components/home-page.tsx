@@ -2,234 +2,207 @@
 
 import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { Search, ShoppingBag, Pause, Play } from "lucide-react"
+import { Search, ShoppingBag, Pause, Play, Headphones, Volume2, ShieldCheck, Sparkles } from "lucide-react"
 import Image from "next/image"
 
 const dropdownMenus = {
   Store: {
     sections: [
       {
-        title: "Shop",
+        title: "Shop Audio",
         items: [
           "Shop the Latest",
-          "Mac",
-          "iPad",
-          "iPhone",
-          "Apple Watch",
-          "Apple Vision Pro",
-          "AirPods",
-          "Accessories",
+          "Auralis Max",
+          "Auralis Pro In-Ear",
+          "Auralis Studio Monitor",
+          "Auralis One Home Speaker",
+          "Auralis SoundStage 360",
+          "Custom Audio Accessories",
         ],
       },
       {
-        title: "Quick Links",
-        items: ["Find a Store", "Order Status", "Apple Trade In", "Financing", "Personal Setup"],
-      },
-      {
-        title: "Shop Special Stores",
-        items: ["Education", "Business"],
-      },
-    ],
-  },
-  Mac: {
-    sections: [
-      {
-        title: "Explore Mac",
+        title: "Services & Trade",
         items: [
-          "Explore All Mac",
-          "MacBook Air",
-          "MacBook Pro",
-          "iMac",
-          "Mac mini",
-          "Mac Studio",
-          "Mac Pro",
-          "Displays",
+          "Find an Experience Store",
+          "Order Status",
+          "Auralis Trade-In Program",
+          "Flexible Financing",
+          "Personalized Sound Setup",
         ],
       },
       {
-        title: "Shop Mac",
-        items: ["Shop Mac", "Mac Accessories", "Apple Trade In", "Financing"],
-      },
-      {
-        title: "More from Mac",
-        items: ["Mac Support", "AppleCare+ for Mac", "macOS Sonoma", "Apps by Apple", "Continuity"],
+        title: "Special Programs",
+        items: ["Music Creators & Studios", "Audio Engineering Education", "Enterprise Sound"],
       },
     ],
   },
-  iPad: {
+  "Auralis Max": {
     sections: [
       {
-        title: "Explore iPad",
-        items: ["Explore All iPad", "iPad Pro", "iPad Air", "iPad", "iPad mini", "Apple Pencil", "Keyboards"],
-      },
-      {
-        title: "Shop iPad",
-        items: ["Shop iPad", "iPad Accessories", "Apple Trade In", "Financing"],
-      },
-      {
-        title: "More from iPad",
-        items: ["iPad Support", "AppleCare+ for iPad", "iPadOS 17", "Apps by Apple", "iCloud+"],
-      },
-    ],
-  },
-  iPhone: {
-    sections: [
-      {
-        title: "Explore iPhone",
-        items: ["Explore All iPhone", "iPhone 15 Pro", "iPhone 15", "iPhone 14", "iPhone 13", "iPhone SE"],
-      },
-      {
-        title: "Shop iPhone",
-        items: ["Shop iPhone", "iPhone Accessories", "Apple Trade In", "Carrier Deals at Apple", "Financing"],
-      },
-      {
-        title: "More from iPhone",
-        items: ["iPhone Support", "AppleCare+ for iPhone", "iOS 17", "Apps by Apple", "iPhone Privacy"],
-      },
-    ],
-  },
-  Watch: {
-    sections: [
-      {
-        title: "Explore Watch",
+        title: "Explore Auralis Max",
         items: [
-          "Explore All Apple Watch",
-          "Apple Watch Series 9",
-          "Apple Watch Ultra 2",
-          "Apple Watch SE",
-          "Apple Watch Nike",
-          "Apple Watch Hermès",
+          "Explore Auralis Max",
+          "Studio Edition",
+          "Acoustic Architecture",
+          "Design & Craftsmanship",
+          "Technical Specifications",
         ],
       },
       {
-        title: "Shop Watch",
-        items: ["Shop Apple Watch", "Apple Watch Studio", "Apple Watch Bands", "Apple Watch Accessories", "Financing"],
+        title: "Personalization",
+        items: ["Order Auralis Max", "Custom Engraving", "Interchangeable Cushions", "Smart Travel Case"],
       },
       {
-        title: "More from Watch",
-        items: ["Apple Watch Support", "AppleCare+", "watchOS 10"],
-      },
-    ],
-  },
-  Vision: {
-    sections: [
-      {
-        title: "Explore Vision",
-        items: ["Explore Apple Vision Pro", "Guided Tour", "Tech Specs"],
-      },
-      {
-        title: "Shop Vision",
-        items: ["Shop Apple Vision Pro", "Apple Vision Pro Accessories", "Book a Demo", "Financing"],
-      },
-      {
-        title: "More from Vision",
-        items: ["Apple Vision Pro Support", "AppleCare+", "visionOS"],
-      },
-    ],
-  },
-  AirPods: {
-    sections: [
-      {
-        title: "Explore AirPods",
+        title: "Audio Technology",
         items: [
-          "Explore All AirPods",
-          "AirPods Pro 2nd generation",
-          "AirPods 2nd generation",
-          "AirPods 3rd generation",
-          "AirPods Max",
-        ],
-      },
-      {
-        title: "Shop AirPods",
-        items: ["Shop AirPods", "AirPods Accessories"],
-      },
-      {
-        title: "More from AirPods",
-        items: ["AirPods Support", "AppleCare+ for Headphones", "Apple Music"],
-      },
-    ],
-  },
-  "TV & Home": {
-    sections: [
-      {
-        title: "Explore TV & Home",
-        items: ["Explore TV & Home", "Apple TV 4K", "HomePod", "HomePod mini"],
-      },
-      {
-        title: "Shop TV & Home",
-        items: ["Shop Apple TV 4K", "Shop HomePod", "Shop HomePod mini", "Shop Siri Remote", "TV & Home Accessories"],
-      },
-      {
-        title: "More from TV & Home",
-        items: [
-          "Apple TV Support",
-          "HomePod Support",
-          "AppleCare+",
-          "Apple TV app",
-          "Apple TV+",
-          "Home app",
-          "Apple Music",
-          "Siri",
+          "Computational Audio Engine",
+          "Lossless USB-C Audio",
+          "Active Noise Cancellation",
+          "Transparency Mode",
+          "AuralisCare+ Coverage",
         ],
       },
     ],
   },
-  Entertainment: {
+  Earbuds: {
     sections: [
       {
-        title: "Explore Entertainment",
+        title: "Explore Earbuds",
         items: [
-          "Explore Entertainment",
-          "Apple One",
-          "Apple TV+",
-          "Apple Music",
-          "Apple Arcade",
-          "Apple Fitness+",
-          "Apple News+",
-          "Apple Podcasts",
-          "Apple Books",
-          "App Store",
+          "Explore All In-Ear",
+          "Auralis Pro (Gen 2)",
+          "Auralis Air Wireless",
+          "Auralis Sport Active",
+          "Audiophile Fit Comparison",
         ],
       },
       {
-        title: "Support",
-        items: ["Apple TV+ Support", "Apple Music Support"],
+        title: "Shop Earbuds",
+        items: ["Buy Auralis Pro", "MagSafe Wireless Case", "Memory Foam Tips", "Sport Wingtips"],
+      },
+      {
+        title: "Features",
+        items: ["Adaptive Audio", "Conversation Awareness", "Spatial Head Tracking", "Sweat & Water Resistance"],
+      },
+    ],
+  },
+  "Home Audio": {
+    sections: [
+      {
+        title: "Explore Speakers",
+        items: [
+          "Explore Home Audio",
+          "Auralis One Studio",
+          "Auralis Mini Ambient",
+          "SoundStage 360 Cinema",
+          "Multiroom Audio System",
+        ],
+      },
+      {
+        title: "Shop Home Audio",
+        items: ["Shop Auralis One", "Stereo Pairing Bundles", "Floor Stands & Wall Mounts", "Hi-Res Audio Cables"],
+      },
+      {
+        title: "Smart Sound",
+        items: [
+          "Room Acoustic Sensing",
+          "AirPlay & Cast Streaming",
+          "Studio Multiroom Sync",
+          "High-Resolution Lossless",
+        ],
+      },
+    ],
+  },
+  "Spatial Sound": {
+    sections: [
+      {
+        title: "Spatial Technology",
+        items: [
+          "Experience Spatial Audio",
+          "Personalized HRTF Profiling",
+          "Dynamic Head Tracking",
+          "Dolby Atmos Mastering",
+          "Ultra-Low Latency Engine",
+        ],
+      },
+      {
+        title: "Supported Platforms",
+        items: ["Auralis Sound Studio", "Hi-Res Audio Partners", "Cinema Immersion Mode", "Pro Gaming Sound"],
+      },
+      {
+        title: "Sound Guides",
+        items: ["What is Spatial Audio?", "Acoustic Seal Calibration", "Hearing Safety & Wellness"],
       },
     ],
   },
   Accessories: {
     sections: [
       {
-        title: "Shop Accessories",
-        items: ["Shop All Accessories", "Mac", "iPad", "iPhone", "Apple Watch", "AirPods", "TV & Home"],
+        title: "Headphone Essentials",
+        items: [
+          "Acoustic Mesh Cushions",
+          "Smart Magnetic Travel Case",
+          "3.5mm to USB-C Audio Cable",
+          "Braided Charging Cable",
+          "Aluminum Headphone Stand",
+        ],
       },
       {
-        title: "Explore Accessories",
-        items: ["Made by Apple", "Beats by Dr. Dre", "AirTag"],
+        title: "Pro Gear & Adapters",
+        items: ["High-Res DAC Adapter", "Studio Flight Adapter", "Replacement Eartips", "Hard Shell Carrying Case"],
+      },
+      {
+        title: "Protection & Care",
+        items: ["AuralisCare+ Plans", "Microfiber Cleaning Cloth", "Silicon Cup Protectors"],
       },
     ],
   },
   Support: {
     sections: [
       {
-        title: "Explore Support",
-        items: ["iPhone", "Mac", "iPad", "Watch", "AirPods", "Music", "TV"],
+        title: "Product Support",
+        items: [
+          "Auralis Max Support",
+          "Auralis Pro Support",
+          "Home Audio Setup",
+          "Bluetooth & Pairing Help",
+          "Firmware Updates",
+        ],
       },
       {
-        title: "Get Help",
-        items: ["Community", "Check Coverage", "Repair", "Contact Us"],
+        title: "Service & Repairs",
+        items: [
+          "Auralis Repair Service",
+          "Battery Replacement",
+          "Check Warranty & Coverage",
+          "Schedule In-Store Demo",
+        ],
       },
       {
-        title: "Helpful Topics",
-        items: ["Get AppleCare+", "Apple ID & Password", "Billing & Subscriptions", "Find My", "Accessibility"],
+        title: "Resources",
+        items: [
+          "Auralis Connect App",
+          "User Manuals & Downloads",
+          "Acoustic Calibration Tool",
+          "Contact Audio Concierge",
+        ],
       },
     ],
   },
 }
 
+const colorVariants = [
+  { name: "Space Graphite", color: "#3c3d42", accent: "from-zinc-800 to-zinc-950" },
+  { name: "Silver Frost", color: "#e3e4e5", accent: "from-slate-200 to-slate-400" },
+  { name: "Sky Azure", color: "#97a8b3", accent: "from-sky-300 to-sky-600" },
+  { name: "Midnight Rose", color: "#d8a69d", accent: "from-rose-300 to-rose-600" },
+  { name: "Nordic Sage", color: "#9ca89a", accent: "from-emerald-300 to-emerald-700" },
+]
+
 export default function HomePage() {
   const [isPlaying, setIsPlaying] = useState(true)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [selectedColor, setSelectedColor] = useState(0)
   const videoRef = useRef<HTMLVideoElement>(null)
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -261,115 +234,58 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#f5f5f7]">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50">
-        <div className="bg-white">
-          <div className="mx-auto flex h-11 max-w-[980px] items-center justify-between px-4 text-xs text-[#1d1d1f]">
-            <a href="#" className="flex items-center opacity-80 hover:opacity-100 transition-opacity">
-              <Image src="/apple-logo.png" alt="Apple" width={16} height={20} className="h-5 w-auto" />
+        <div className="bg-white/95 backdrop-blur-md border-b border-black/[0.06]">
+          <div className="mx-auto flex h-12 max-w-[1040px] items-center justify-between px-5 text-[13px] text-[#1d1d1f]">
+            {/* Custom Brand Logo */}
+            <a
+              href="#"
+              className="flex items-center gap-2 opacity-90 hover:opacity-100 transition-opacity tracking-tight"
+            >
+              <div className="flex items-center justify-center h-7 w-7 rounded-full bg-[#1d1d1f] text-white shadow-sm">
+                <Headphones className="h-3.5 w-3.5" />
+              </div>
+              <span className="font-semibold text-sm tracking-[0.16em] uppercase text-[#1d1d1f]">AURALIS</span>
             </a>
-            <div className="flex items-center gap-8">
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("Store")}
-                onMouseLeave={handleMouseLeave}
-              >
-                Store
-              </a>
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("Mac")}
-                onMouseLeave={handleMouseLeave}
-              >
-                Mac
-              </a>
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("iPad")}
-                onMouseLeave={handleMouseLeave}
-              >
-                iPad
-              </a>
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("iPhone")}
-                onMouseLeave={handleMouseLeave}
-              >
-                iPhone
-              </a>
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("Watch")}
-                onMouseLeave={handleMouseLeave}
-              >
-                Watch
-              </a>
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("Vision")}
-                onMouseLeave={handleMouseLeave}
-              >
-                Vision
-              </a>
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("AirPods")}
-                onMouseLeave={handleMouseLeave}
-              >
-                AirPods
-              </a>
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("TV & Home")}
-                onMouseLeave={handleMouseLeave}
-              >
-                TV & Home
-              </a>
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("Entertainment")}
-                onMouseLeave={handleMouseLeave}
-              >
-                Entertainment
-              </a>
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("Accessories")}
-                onMouseLeave={handleMouseLeave}
-              >
-                Accessories
-              </a>
-              <a
-                href="#"
-                className="opacity-80 hover:opacity-100 transition-opacity"
-                onMouseEnter={() => handleMouseEnter("Support")}
-                onMouseLeave={handleMouseLeave}
-              >
-                Support
-              </a>
+
+            {/* Menu Links */}
+            <div className="hidden md:flex items-center gap-7">
+              {Object.keys(dropdownMenus).map((menuKey) => (
+                <a
+                  key={menuKey}
+                  href="#"
+                  className={`opacity-80 hover:opacity-100 transition-opacity font-medium ${
+                    activeDropdown === menuKey ? "text-[#0071e3] opacity-100 font-semibold" : ""
+                  }`}
+                  onMouseEnter={() => handleMouseEnter(menuKey)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {menuKey}
+                </a>
+              ))}
             </div>
+
+            {/* Nav Actions */}
             <div className="flex items-center gap-4">
-              <button className="opacity-80 hover:opacity-100 transition-opacity">
-                <Search className="h-4 w-4" />
+              <button
+                aria-label="Search Auralis"
+                className="opacity-75 hover:opacity-100 transition-opacity p-1.5 rounded-full hover:bg-black/5"
+              >
+                <Search className="h-4 w-4 text-[#1d1d1f]" />
               </button>
-              <button className="opacity-80 hover:opacity-100 transition-opacity">
-                <ShoppingBag className="h-4 w-4" />
+              <button
+                aria-label="Bag"
+                className="opacity-75 hover:opacity-100 transition-opacity p-1.5 rounded-full hover:bg-black/5"
+              >
+                <ShoppingBag className="h-4 w-4 text-[#1d1d1f]" />
               </button>
             </div>
           </div>
         </div>
 
+        {/* Dropdown Menu */}
         <div
-          className={`absolute left-0 right-0 bg-[#f5f5f7] transition-all duration-200 ease-in-out overflow-hidden ${
-            activeDropdown ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          className={`absolute left-0 right-0 bg-[#f5f5f7]/98 backdrop-blur-2xl border-b border-black/10 transition-all duration-200 ease-in-out overflow-hidden shadow-2xl ${
+            activeDropdown ? "max-h-[500px] opacity-100 py-10" : "max-h-0 opacity-0 py-0"
           }`}
           onMouseEnter={() => {
             if (dropdownTimeoutRef.current) {
@@ -379,17 +295,19 @@ export default function HomePage() {
           onMouseLeave={handleMouseLeave}
         >
           {activeDropdown && dropdownMenus[activeDropdown as keyof typeof dropdownMenus] && (
-            <div className="mx-auto max-w-[980px] px-8 py-12">
-              <div className="grid grid-cols-3 gap-16">
+            <div className="mx-auto max-w-[1040px] px-8">
+              <div className="grid grid-cols-3 gap-14">
                 {dropdownMenus[activeDropdown as keyof typeof dropdownMenus].sections.map((section, idx) => (
                   <div key={idx}>
-                    <h3 className="text-xs font-semibold text-[#6e6e73] mb-3">{section.title}</h3>
-                    <ul className="space-y-2.5">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-[#86868b] mb-4">
+                      {section.title}
+                    </h3>
+                    <ul className="space-y-3">
                       {section.items.map((item, itemIdx) => (
                         <li key={itemIdx}>
                           <a
                             href="#"
-                            className="text-2xl font-semibold text-[#1d1d1f] hover:text-[#0066cc] transition-colors"
+                            className="text-xl md:text-2xl font-medium text-[#1d1d1f] hover:text-[#0071e3] transition-colors block leading-tight"
                           >
                             {item}
                           </a>
@@ -405,18 +323,21 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen pt-11 snap-start snap-always">
+      <section className="relative h-screen pt-12 snap-start snap-always">
         {/* Video Background */}
         <div className="absolute inset-0">
           <video ref={videoRef} className="h-full w-full object-cover" autoPlay muted loop playsInline>
-            <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/airpod-max-WbDUTEVA7cOgSLowVoY2R0MCH4D8NY.mp4" type="video/mp4" />
+            <source
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/airpod-max-WbDUTEVA7cOgSLowVoY2R0MCH4D8NY.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
 
         {/* Play/Pause Button */}
         <button
           onClick={togglePlay}
-          className="absolute right-8 top-20 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(0,0,0,0.5)] backdrop-blur-md text-white hover:bg-[rgba(0,0,0,0.7)] transition-colors"
+          className="absolute right-8 top-20 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(0,0,0,0.5)] backdrop-blur-md text-white hover:bg-[rgba(0,0,0,0.7)] transition-colors shadow-lg"
           aria-label={isPlaying ? "Pause video" : "Play video"}
         >
           {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4 ml-0.5" />}
@@ -425,17 +346,50 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 flex h-full flex-col justify-end px-8 pb-16">
           <div className="max-w-[980px] mx-auto w-full">
-            <p className="text-[17px] font-semibold text-[#1d1d1f] mb-1">AirPods Max</p>
-            <h1 className="text-[80px] font-semibold leading-[1.05] tracking-tight text-[#1d1d1f] mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 backdrop-blur-md border border-white/60 mb-3 shadow-xs">
+              <Sparkles className="h-3.5 w-3.5 text-[#0071e3]" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#1d1d1f]">
+                Flagship Wireless Acoustic System
+              </span>
+            </div>
+            <p className="text-[20px] font-semibold text-[#1d1d1f] mb-1 tracking-tight">Auralis Max</p>
+            <h1 className="text-[72px] md:text-[88px] font-semibold leading-[1.02] tracking-tight text-[#1d1d1f] mb-6">
               Symphonic boom.
             </h1>
-            <div className="flex items-center gap-4">
-              <p className="text-[17px] font-semibold text-[#1d1d1f]">AED 2,099</p>
+
+            {/* Finish Selector */}
+            <div className="mb-6 flex items-center gap-3">
+              <span className="text-xs font-semibold text-[#1d1d1f]/80 uppercase tracking-wider">Finish:</span>
+              <div className="flex items-center gap-2">
+                {colorVariants.map((c, i) => (
+                  <button
+                    key={c.name}
+                    onClick={() => setSelectedColor(i)}
+                    title={c.name}
+                    className={`h-6 w-6 rounded-full border-2 transition-transform ${
+                      selectedColor === i ? "border-[#0071e3] scale-110 shadow-xs" : "border-white/80 hover:scale-105"
+                    }`}
+                    style={{ backgroundColor: c.color }}
+                  />
+                ))}
+              </div>
+              <span className="text-xs font-medium text-[#6e6e73] ml-1">{colorVariants[selectedColor].name}</span>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <p className="text-[19px] font-semibold text-[#1d1d1f]">AED 2,099</p>
               <Button
                 size="lg"
-                className="rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white px-5 h-11 text-[17px] font-normal"
+                className="rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white px-6 h-11 text-[17px] font-medium shadow-sm transition-all"
               >
-                Buy
+                Buy Now
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full border-black/15 bg-white/70 backdrop-blur text-[#1d1d1f] hover:bg-white px-6 h-11 text-[17px] font-medium transition-all"
+              >
+                Experience Specs
               </Button>
             </div>
           </div>
@@ -444,9 +398,12 @@ export default function HomePage() {
 
       {/* Composition Section */}
       <section className="relative h-screen flex items-center justify-center bg-[#f5f5f7] snap-start snap-always overflow-hidden">
-        <Image src="/digital-crown.jpg" alt="AirPods Max Digital Crown" fill className="object-cover" priority />
-        <div className="absolute top-0 left-0 right-0 pt-20 text-center z-10">
-          <h2 className="text-5xl md:text-6xl font-semibold text-[#1d1d1f] leading-tight">
+        <Image src="/digital-crown.jpg" alt="Auralis Precision Crown Controller" fill className="object-cover" priority />
+        <div className="absolute top-0 left-0 right-0 pt-20 text-center z-10 px-4">
+          <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-[#86868b] mb-2">
+            Auralis Acoustic Engineering
+          </p>
+          <h2 className="text-5xl md:text-6xl font-semibold text-[#1d1d1f] leading-tight tracking-tight">
             A radically original
             <br />
             composition.
@@ -455,27 +412,38 @@ export default function HomePage() {
       </section>
 
       {/* Feature Cards Section */}
-      <section className="h-screen flex items-center justify-center bg-[#f5f5f7] snap-start snap-always px-3">
-        <div className="w-full h-full max-w-[1400px] mx-auto flex gap-3 py-3">
+      <section className="h-screen flex items-center justify-center bg-[#f5f5f7] snap-start snap-always px-4">
+        <div className="w-full h-full max-w-[1400px] mx-auto flex flex-col md:flex-row gap-4 py-4">
           {/* Card 1 */}
-          <div className="relative flex-1 h-full rounded-3xl overflow-hidden bg-white">
-            <Image src="/airpods-cushions.jpg" alt="AirPods Max Cushions" fill className="object-cover" />
-            <div className="absolute bottom-0 left-0 right-0 pb-12 px-8">
+          <div className="relative flex-1 h-full rounded-3xl overflow-hidden bg-white shadow-xs">
+            <Image
+              src="/airpods-cushions.jpg"
+              alt="Auralis Engineered Memory Foam Cushions"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 pb-12 px-8 bg-gradient-to-t from-white/90 via-white/50 to-transparent pt-16">
               <p className="text-[17px] text-[#6e6e73] leading-relaxed">
                 <span className="font-semibold text-[#1d1d1f]">Cushions.</span> Crafted with acoustically engineered
-                memory foam and a custom-designed mesh textile, the pillow-like softness of the ear cushions gently
-                creates an immersive seal that is the foundation of incredible sound.
+                high-density memory foam and a custom-designed breathable weave textile, the cloud-like softness of the
+                Auralis ear cushions gently creates an airtight acoustic seal that is the foundation of pristine sound.
               </p>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="relative flex-1 h-full rounded-3xl overflow-hidden bg-white">
-            <Image src="/airpods-cups.jpg" alt="AirPods Max Cups" fill className="object-cover" />
-            <div className="absolute bottom-0 left-0 right-0 pb-12 px-8">
+          <div className="relative flex-1 h-full rounded-3xl overflow-hidden bg-white shadow-xs">
+            <Image
+              src="/airpods-cups.jpg"
+              alt="Auralis Anodized Aluminum Acoustic Cups"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 pb-12 px-8 bg-gradient-to-t from-white/90 via-white/50 to-transparent pt-16">
               <p className="text-[17px] text-[#6e6e73] leading-relaxed">
-                <span className="font-semibold text-[#1d1d1f]">Cups.</span> The beautifully anodized aluminum cups
-                feature a revolutionary mechanism that allows each cup to rotate independently and balance pressure.
+                <span className="font-semibold text-[#1d1d1f]">Acoustic Cups.</span> The beautifully anodized aerospace-grade
+                aluminum earcups feature a revolutionary independent suspension mechanism that allows each cup to pivot
+                fluidly and balance acoustic pressure across your head.
               </p>
             </div>
           </div>
@@ -484,36 +452,46 @@ export default function HomePage() {
 
       {/* Telescoping Arms Section */}
       <section className="relative h-screen flex items-center justify-center bg-[#f5f5f7] snap-start snap-always overflow-hidden">
-        <Image src="/telescoping-arms.png" alt="AirPods Max Telescoping Arms" fill className="object-cover" priority />
+        <Image src="/telescoping-arms.png" alt="Auralis Max Telescoping Arms" fill className="object-cover" priority />
         <div className="absolute bottom-0 left-0 right-0 pb-24 text-center z-10 px-8">
-          <p className="text-[21px] text-white leading-relaxed max-w-3xl mx-auto">
+          <p className="text-[21px] text-white leading-relaxed max-w-3xl mx-auto drop-shadow-sm">
             <span className="font-semibold text-white">Telescoping arms.</span> The telescoping arms smoothly extend
-            from the stainless steel frame — staying where you set them for a consistent fit and seal.
+            from the polished stainless steel canopy — staying firmly and precisely where you set them for a customized,
+            fatigue-free fit.
           </p>
         </div>
       </section>
 
       {/* Smart Case Section */}
       <section className="relative h-screen flex items-center justify-center bg-[#f5f5f7] snap-start snap-always overflow-hidden">
-        <Image src="/images/image.png" alt="AirPods Max Smart Case" fill className="object-cover" priority />
+        <Image src="/images/image.png" alt="Auralis Max Smart Travel Case" fill className="object-cover" priority />
         <div className="absolute bottom-0 left-0 right-0 pb-24 text-center z-10 px-8">
           <p className="text-[21px] text-[#6e6e73] leading-relaxed max-w-3xl mx-auto">
-            <span className="font-semibold text-[#1d1d1f]">Smart Case.</span> When stored in their soft, slim Smart
-            Case, AirPods Max enter an ultra‑low‑power state that preserves charge.
+            <span className="font-semibold text-[#1d1d1f]">Smart Case.</span> When stored in their tailored, ultra-slim
+            Smart Case, Auralis Max instantly enters a deep ultra‑low‑power preservation state that protects battery charge
+            for months between sessions.
           </p>
         </div>
       </section>
 
-      <div className="fixed bottom-6 right-6 z-50">
-        <a
-          href="https://v0.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 bg-black/80 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-black/90 transition-colors shadow-lg"
-        >
-          Built using v0
-        </a>
-      </div>
+      {/* Brand Footer Ribbon */}
+      <footer className="bg-white border-t border-black/10 py-10 px-6 snap-start">
+        <div className="max-w-[1040px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-[#86868b]">
+          <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center h-5 w-5 rounded-full bg-[#1d1d1f] text-white">
+              <Headphones className="h-3 w-3" />
+            </div>
+            <span className="font-semibold uppercase tracking-wider text-[#1d1d1f]">Auralis Audio Systems</span>
+            <span>&copy; {new Date().getFullYear()} All rights reserved.</span>
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="#" className="hover:text-[#1d1d1f] transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-[#1d1d1f] transition-colors">Terms of Sale</a>
+            <a href="#" className="hover:text-[#1d1d1f] transition-colors">Acoustic Warranty</a>
+            <a href="#" className="hover:text-[#1d1d1f] transition-colors">Audio Labs</a>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
